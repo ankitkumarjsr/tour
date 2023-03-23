@@ -11,4 +11,6 @@ const authbg7 = 'assets/auth11.jpeg';
 const authbg8 = 'assets/auth13.gif';
 const authbg9 = 'assets/auth15.gif';
 
+const car='assets/car.jpeg';
+
 

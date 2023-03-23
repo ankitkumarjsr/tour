@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tour/constants/images_constants.dart';
 
 import '../home_screen.dart';
+import '../loginpage.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -214,43 +215,45 @@ class _AuthScreenState extends State<AuthScreen> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(right: 25),
-                      child: SizedBox(
-                        width: width * 0.88,
-                        child: ElevatedButton(
-                          child: const Text(
-                            'Log In',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
-                          ),
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              print(usernameController.text);
-                              print(passwordController.text);
-                              if (usernameController.text == 'Ankit' &&
-                                  passwordController.text == 'aaAA11') {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(duration: Duration(seconds: 1),
-                                        content: Text(
-                                            'Loading Please Wait...!!!')));
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Homescreen()));
+                      child: InkWell(
+                        child: SizedBox(
+                          width: width * 0.88,
+                          child: ElevatedButton(
+                            child: const Text(
+                              'Log In',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                print(usernameController.text);
+                                print(passwordController.text);
+                                if (usernameController.text == 'Ankit' &&
+                                    passwordController.text == 'aaAA11') {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(duration: Duration(seconds: 1),
+                                          content: Text(
+                                              'Loading Please Wait...!!!')));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Homescreen()));
 
-                              } else {
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(const SnackBar(
-                                  content: Text('Password Not Matched!!!!!',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18)),
-                                  backgroundColor: Colors.grey,
-                                  duration: Duration(seconds: 1),
-                                ));
+                                } else {
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(const SnackBar(
+                                    content: Text('Password Not Matched!!!!!',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18)),
+                                    backgroundColor: Colors.grey,
+                                    duration: Duration(seconds: 1),
+                                  ));
+                                }
                               }
-                            }
-                          },
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -260,18 +263,19 @@ class _AuthScreenState extends State<AuthScreen> {
                   children: <Widget>[
                     const Padding(
                       padding: EdgeInsets.only(left: 10),
-                      child: Text("Forgotten Your Login Details?",
-                          style: TextStyle(
-                              color: Colors.black,
-                              backgroundColor: Colors.white70,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13)),
+                      child: InkWell(
+                        child: Text("Forgotten Your Login Details?",
+                            style: TextStyle(
+                                color: Colors.black,
+                                backgroundColor: Colors.white70,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13)),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 1),
                       child: TextButton(
-                          onPressed: () =>
-                              print('Tapped Get Help In Logging In.'),
+                          onPressed: () =>() => Navigator.push(context, MaterialPageRoute(builder: (context) => First(),)),
                           child: const Text(
                             "Get Help In Logging In.",
                             style: TextStyle(

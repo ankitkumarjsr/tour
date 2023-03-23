@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:tour/constants/images_constants.dart';
 import 'package:tour/models/popular_place_model.dart';
+
+import 'loginpage.dart';
 
 class Homescreen extends StatefulWidget {
   Homescreen({Key? key}) : super(key: key);
@@ -111,6 +114,8 @@ class _HomescreenState extends State<Homescreen> {
                         onTap: () {
                           setState(() {
                             currentindex=index;
+                             Navigator.push(context,  MaterialPageRoute(builder: (context) => First(),));
+
                           });
                         },
                         child: Text(
